@@ -1,0 +1,37 @@
+New-ADOrganizationalUnit -Name "ECOLEIT" -Path "dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "orleans" -Path "OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "bruxelles" -Path "OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "valencienne" -Path "OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "servers" -Path "OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "employees" -Path "OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "groups" -Path "OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "students" -Path "OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "trainers" -Path "OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "year1" Path "OU=students,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+New-ADOrganizationalUnit -Name "year2" Path "OU=students,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local"
+
+#----------------------création des utiliateur--------------
+New-ADUser -Name "Novak djokovic" -GivenName "Novak" -Surname "djokovic" -SamAccountName "N.djokovic" -UserPrincipalName "N.djokovic@enterprise.com" -Path "OU=employees,OU=bruxelles,OU=ECOLEIT,dc=KHE,dc=local" 
+#création de raphael Nadal
+New-ADUser -Name "rafael nadal" -GivenName "Raphaem" -Surname "Nadal" -SamAccountName "R.Nadal" -UserPrincipalName "R.Nadal@enterprise.com" -Path "OU=year1,OU=students,OU=bruxelles,OU=ECOLEIT,dc=KHE,dc=local" 
+New-ADUser -Name "roger fiderer" -GivenName "Roger" -Surname "federer" -SamAccountName "R.federer" -UserPrincipalName "R.federer@enterprise.com" -Path "OU=year2,OU=students,OU=bruxelles,OU=ECOLEIT,dc=KHE,dc=local" 
+New-ADUser -Name "henry devigne" -GivenName "henry" -Surname "devigne" -SamAccountName "H.devigne" -UserPrincipalName "H.devigne@enterprise.com" -Path "OU=trainers,OU=bruxelles,OU=ECOLEIT,dc=KHE,dc=local" 
+
+#------------------création des groupe de sécurité -----------------------------
+
+New-ADGroup -Name "Employees" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
+New-ADGroup -Name "servers" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
+New-ADGroup -Name "students" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
+New-ADGroup -Name "trainers" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
+New-ADGroup -Name "year1" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
+New-ADGroup -Name "year2" GroupScope Global -GroupCategory Security -Path "OU=groups,OU=bruxelles,OU=ECOLEIT,dc=AMZ,dc=local" 
